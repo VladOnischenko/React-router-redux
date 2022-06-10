@@ -1,0 +1,24 @@
+.header{
+  text-align: center;
+}
+.shop-cart {
+  padding: 30px 10px;
+  width: 250px;
+  position: absolute;
+  right: 5px;
+  top: 60px;
+  background: red;
+  z-index: 2;
+  border-radius: 15px;
+}
+
+.shop-favorites {
+  padding: 30px 10px;
+  width: 250px;
+  position: absolute;
+  right: 280px;
+  top: 60px;
+  background: rgba(81, 255, 0, 0.83);
+  z-index: 2;
+  border-radius: 15px;
+}

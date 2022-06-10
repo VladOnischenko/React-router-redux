@@ -1,0 +1,31 @@
+.custom-btn {
+  padding: 5px 10px;
+  border: none;
+  box-shadow: 1px 1px 11px 3px rgba(0,0,0,0.2);
+  width: 160px;
+  height: 41px;
+  border-radius: 5px;
+  color: #fff;
+  transition: transform 0.3s linear;
+  &:hover {
+    transform: scale(1.1, 1.1);
+  }
+}
+
+.card__description-btn {
+  box-shadow: 1px 1px 11px 3px rgba(0,0,0,0.2);
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 10px;
+  padding: 8px 6px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.green {
+  background: rgba(130, 194, 102, 0.83);
+}
+.red {
+  background: #E74C3C;
+}

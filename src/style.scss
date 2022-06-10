@@ -1,0 +1,21 @@
+h1,h2,p,ul,ol,div,p,h3,body {
+  margin: 0;
+  padding: 0;
+}
+
+ul,ol{
+  list-style: none;
+}
+
+body{
+  background: rgba(138, 148, 134, 0.44);
+}
+
+button {
+  cursor: pointer;
+  margin: 20px;
+  border: none;
+  color: rgba(219, 75, 75, 0.62);
+}
+
+

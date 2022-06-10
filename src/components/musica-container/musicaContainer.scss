@@ -1,0 +1,14 @@
+.store-items {
+  max-width: 950px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 15px;
+  &__title {
+    text-transform: uppercase;
+    font-weight: 300;
+    color: grey;
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+}
+
