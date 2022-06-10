@@ -1,0 +1,17 @@
+.icon {
+  display: inline-block;
+  margin: 0;
+  padding-right: 20px;
+  border: none;
+  background: none;
+  position: relative;
+  &__count {
+    position: absolute;
+    color: red;
+    bottom: 0;
+  }
+  &__img {
+    width: 25px;
+    height: 25px;
+  }
+}

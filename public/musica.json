@@ -1,0 +1,115 @@
+[
+    {
+      "id": 1,
+      "name": "Oh my Deer",
+      "price": 14.99,
+      "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+      "image": "http://u.kanobu.ru/editor/images/86/d9f1bbd8-e56f-4b5f-b420-5d07b1993b39.jpg",
+      "color": "#44434",
+      "flag": false
+    },
+    {
+      "id": 2,
+      "name": "Awaken the Hero",
+      "price": 17.59,
+      "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+      "image": "https://lastfm.freetls.fastly.net/i/u/300x300/bcce6d304ee04357af4bbf5302b08293.jpg",
+      "color": "#44434",
+      "flag": false
+    },
+    {
+      "id": 3,
+      "name": "Ravenna",
+      "price": 11.45,
+      "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+      "image": "https://lastfm.freetls.fastly.net/i/u/300x300/85c8a96ca4e04ca6b8d23cbeb6a99d01.jpg",
+      "color": "#44434",
+      "flag": false
+    },
+    {
+      "id": 4,
+      "name": "Hero",
+      "price": 8.59,
+      "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+      "image": "https://upload.wikimedia.org/wikipedia/ru/3/3f/Night_Visions_Album_Cover.jpeg",
+      "color": "#44434",
+      "flag": false
+    },
+    {
+      "id": 5,
+      "name": "Awaken",
+      "price": 5.55,
+      "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+      "image": "https://upload.wikimedia.org/wikipedia/ru/7/7d/Imagine_Dragons_Evolve_Cover.jpg",
+      "color": "#44434",
+      "flag": false
+    },
+  {
+    "id": 6,
+    "name": "Awaken",
+    "price": 6.65,
+    "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+    "image": "https://resources.tidal.com/images/ed1a4ca6/57c7/440c/8cf9/7242d81e76d0/640x640.jpg",
+    "color": "#44434",
+    "flag": false
+  },
+  {
+    "id": 7,
+    "name": "Awaken",
+    "price": 7.75,
+    "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+    "image": "https://lastfm.freetls.fastly.net/i/u/ar0/343ff4db3d1fe977aaf1fc9bbee169a9.jpg",
+    "color": "#44434",
+    "flag": false
+  },
+  {
+    "id": 8,
+    "name": "Awaken",
+    "price": 2.95,
+    "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+    "image": "https://parlemag.com/ru/wp-content/uploads/2017/02/Desiigner-Outlet.jpg",
+    "color": "#44434",
+    "flag": false
+  },
+  {
+    "id": 9,
+    "name": "Awaken",
+    "price": 3.99,
+    "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+    "image": "https://i.pinimg.com/originals/6e/08/89/6e088923f69dd1f1135842a0df840242.jpg",
+    "color": "#44434",
+    "flag": false
+  },
+  {
+    "id": 10,
+    "name": "Awaken",
+    "price": 2.45,
+    "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+    "image": "https://i.pinimg.com/736x/5d/e8/ad/5de8addc8beda4ee82127bb3d1c86e16.jpg",
+    "color": "#44434",
+    "flag": false
+  },
+  {
+    "id": 11,
+    "name": "Awaken",
+    "price": 12.05,
+    "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+    "image": "https://upload.wikimedia.org/wikipedia/ru/f/ff/Yamakasi_%28%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%29.jpeg",
+    "color": "#44434",
+    "flag": false
+  },
+  {
+    "id": 12,
+    "name": "Awaken",
+    "price": 9.12,
+    "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
+    "image": "https://avatars.yandex.net/get-music-content/193823/33f4ebc8.a.5515212-2/m1000x1000",
+    "color": "#44434",
+    "flag": false
+  }
+]
+
+
+
+
+
