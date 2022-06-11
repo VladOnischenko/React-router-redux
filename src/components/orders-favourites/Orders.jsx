@@ -1,18 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './orders.scss'
 import PropTypes from 'prop-types';
 
-class Orders extends Component {
-  render() {
-    const {image, price, name } = this.props.item
-    return (
-      <div className="item">
-          <img src={image} alt="image" className="item__img"/>
-          <h3 className="item__title"><span>{name}</span></h3>
-          <span className="item__description-price">${price}</span>
-      </div>
-    );
-  }
+const Orders = (props) => {
+  const {image, price, name } = props.item
+  return (
+    <div className="item">
+      <img src={image} alt="image" className="item__img"/>
+      <h3 className="item__title"><span>{name}</span></h3>
+      <span className="item__description-price">${price}</span>
+    </div>
+  );
 }
 
 Orders.propTypes = {
