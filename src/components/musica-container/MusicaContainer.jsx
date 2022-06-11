@@ -1,40 +1,36 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import './musicaContainer.scss'
 import Cart from "../cart/Cart";
 import PropTypes from 'prop-types';
 
-class MusicaContainer extends Component {
-  state = {
-    items: [],
-  }
+const MusicaContainer = (props) => {
+  const { title, onAdd, addFav, stars } = props
+  const [items, setItems] = useState([])
 
-  componentDidMount() {
-     fetch('./musica.json')
+  useEffect(() => {
+    fetch('./musica.json')
       .then((response) => response.json())
-       .then(data => {
-         this.setState({ items: data})
-       })
-  }
+      .then(data => {
+        setItems(data)
+      })
+  },[])
 
-  render() {
-    const { title, onAdd, addFav, stars } = this.props
-    return (
-      <>
-        <h2 className="store-items__title">{title}</h2>
-        <ul className="cards-wrapper">
-          {this.state.items.map( item =>
-            <Cart
-                  key={item.id}
-                  itemInfo={item}
-                  onAdd={onAdd}
-                  addFav={addFav}
-                  stars={stars}
-            />
-           )}
-        </ul>
-      </>
-    );
-  }
+  return (
+    <>
+      <h2 className="store-items__title">{title}</h2>
+      <ul className="cards-wrapper">
+        {items.map( item =>
+          <Cart
+            key={item.id}
+            itemInfo={item}
+            onAdd={onAdd}
+            addFav={addFav}
+            stars={stars}
+          />
+        )}
+      </ul>
+    </>
+  );
 }
 
 MusicaContainer.propTypes = {
