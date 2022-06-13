@@ -1,5 +1,6 @@
 .header{
   text-align: center;
+  padding: 0.5rem 0;
 }
 .shop-cart {
   padding: 30px 10px;
@@ -21,4 +22,10 @@
   background: rgba(81, 255, 0, 0.83);
   z-index: 2;
   border-radius: 15px;
+}
+
+.home-icon{
+  font-size: 25px;
+  color: #00548b;
+  margin: 0 12px;
 }

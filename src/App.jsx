@@ -14,6 +14,7 @@ const App = () => {
     const initialValue = JSON.parse(saved)
     return initialValue || []
   })
+  const [item, setItem] = useState([])
 
   useEffect(() => {
       localStorage.setItem('basket', JSON.stringify(basket))
@@ -45,12 +46,8 @@ const App = () => {
 
   return (
     <>
-      <header className="header">
-        <Header orders={basket} stars={stars}/>
-      </header>
-      <section className="store-items">
-        <MusicaContainer title="LATEST ARRIVALS IN MUSICA" onAdd={addToBasket} addFav={addToStars} stars={stars}/>
-      </section>
+      <Header orders={basket} stars={stars}/>
+      <MusicaContainer title="LATEST ARRIVALS IN MUSICA" onAdd={addToBasket} addFav={addToStars} stars={stars}/>
     </>
   )
 }
