@@ -3,8 +3,14 @@ import './musicaContainer.scss'
 import Cart from "../cart/Cart";
 import PropTypes from 'prop-types';
 
+import {Route, Routes} from "react-router-dom";
+import Favourites from '../Pages/favourites/Favourites'
+import Basket from '../Pages/basket/Basket'
+import NotFoundPage from '../Pages/notFoundPage/NotFoundPage'
+import HomePage from '../Pages/homePage/HomePage'
+
+
 const MusicaContainer = (props) => {
-  const { title, onAdd, addFav, stars } = props
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -17,18 +23,16 @@ const MusicaContainer = (props) => {
 
   return (
     <>
-      <h2 className="store-items__title">{title}</h2>
-      <ul className="cards-wrapper">
-        {items.map( item =>
-          <Cart
-            key={item.id}
-            itemInfo={item}
-            onAdd={onAdd}
-            addFav={addFav}
-            stars={stars}
-          />
-        )}
-      </ul>
+      <section className="store-items">
+        <h2 className="store-items__title">{props.title}</h2>
+
+        <Routes>
+          <Route path="/" element={<HomePage {...props} items={items}/>}/>
+          <Route path="/favourites" element={<Favourites/>}/>
+          <Route path="/basket" element={<Basket/>}/>
+          <Route path="*" element={<NotFoundPage/>}/>
+        </Routes>
+      </section>
     </>
   );
 }
