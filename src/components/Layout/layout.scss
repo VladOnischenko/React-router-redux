@@ -24,8 +24,39 @@
   border-radius: 15px;
 }
 
+
+.icon-wrapper {
+  position: relative;
+}
+.active {
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 7px;
+    width: 35px;
+    height: 3px;
+    background: green;
+  }
+}
+
 .home-icon{
   font-size: 25px;
   color: #00548b;
   margin: 0 12px;
+  position: relative;
+}
+
+.store-items {
+  max-width: 950px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 15px;
+  &__title {
+    text-transform: uppercase;
+    font-weight: 300;
+    color: grey;
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
 }

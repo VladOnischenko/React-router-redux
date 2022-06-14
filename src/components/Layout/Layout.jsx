@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import './header.scss'
+import './layout.scss'
 import InterectiveIcon from "../interectiveIcon/InterectiveIcon";
 import PropTypes from 'prop-types';
 import {IoIosHome} from "react-icons/io";
 
-import {Link} from "react-router-dom";
+import {NavLink, Outlet} from "react-router-dom";
 
-const Header = (props) => {
+const Layout = (props) => {
   const { orders, stars } = props
   const [cartOpen, setCartOpen] = useState(false)
   const [favorites, setFavorites] = useState(false)
@@ -17,20 +17,26 @@ const Header = (props) => {
   return (
     <>
         <header className="header">
-          <Link to="/"><IoIosHome className="home-icon"/></Link>
-          <Link to="/favourites"><InterectiveIcon image="./img/star-after.svg" num={stars.length} action={changeFavorites}/></Link>
-          <Link to="/basket"><InterectiveIcon image="./img/basket.svg" num={orders.length} action={changeCartOpen}/></Link>
+          <NavLink to="/" className="icon-wrapper"><IoIosHome className="home-icon"/></NavLink>
+          <NavLink to="/favourites" className="icon-wrapper"><InterectiveIcon image="./img/star-after.svg" num={stars.length} action={changeFavorites}/></NavLink>
+          <NavLink to="/basket" className="icon-wrapper"><InterectiveIcon image="./img/basket.svg" num={orders.length} action={changeCartOpen}/></NavLink>
         </header>
+
+      <section className="store-items">
+        <h2 className="store-items__title">LATEST ARRIVALS IN MUSICA</h2>
+        <Outlet />
+      </section>
+
     </>
   );
 }
 
-Header.propTypes = {
+Layout.propTypes = {
   orders: PropTypes.array.isRequired,
   stars: PropTypes.array.isRequired,
 }
 
-export default Header;
+export default Layout;
 
 // {favorites && (
 //   <div className="shop-favorites">
@@ -39,7 +45,7 @@ export default Header;
 // )}
 
 // {cartOpen && (
-//   <div className="shop-cart">
+//   <div className="shop-Item">
 //     {orders.map( el => <Orders key={el.id} item={el}/>)}
 //   </div>
 // )}

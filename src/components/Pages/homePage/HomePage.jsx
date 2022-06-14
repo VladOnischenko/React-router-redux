@@ -1,23 +1,24 @@
 import React from 'react';
 import './homePage.scss'
-import Cart from "../../cart/Cart";
+import Item from "../../Item/Item";
 
 const HomePage = (props) => {
-  const { title, onAdd, addFav, stars } = props
+  const { onAdd, addFav, stars } = props
 
   return (
     <div>
-      <ul className="cards-wrapper">
+      <div className="cards-wrapper">
         {props.items.map( item =>
-          <Cart
-            key={item.id}
-            itemInfo={item}
-            onAdd={onAdd}
-            addFav={addFav}
-            stars={stars}
-          />
+            <Item
+              id={item.id.toString()}
+              key={item.id}
+              itemInfo={item}
+              onAdd={onAdd}
+              addFav={addFav}
+              stars={stars}
+            />
         )}
-      </ul>
+      </div>
     </div>
   );
 };
