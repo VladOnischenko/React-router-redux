@@ -1,6 +1,6 @@
 [
     {
-      "id": 1,
+      "id": "1",
       "name": "Oh my Deer",
       "price": 14.99,
       "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
@@ -9,7 +9,7 @@
       "flag": false
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Awaken the Hero",
       "price": 17.59,
       "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
@@ -18,7 +18,7 @@
       "flag": false
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Ravenna",
       "price": 11.45,
       "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
@@ -27,7 +27,7 @@
       "flag": false
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Hero",
       "price": 8.59,
       "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
@@ -36,7 +36,7 @@
       "flag": false
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Awaken",
       "price": 5.55,
       "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
@@ -45,7 +45,7 @@
       "flag": false
     },
   {
-    "id": 6,
+    "id": "6",
     "name": "Awaken",
     "price": 6.65,
     "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
@@ -54,7 +54,7 @@
     "flag": false
   },
   {
-    "id": 7,
+    "id": "7",
     "name": "Awaken",
     "price": 7.75,
     "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
@@ -63,7 +63,7 @@
     "flag": false
   },
   {
-    "id": 8,
+    "id": "8",
     "name": "Awaken",
     "price": 2.95,
     "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
@@ -72,7 +72,7 @@
     "flag": false
   },
   {
-    "id": 9,
+    "id": "9",
     "name": "Awaken",
     "price": 3.99,
     "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
@@ -81,7 +81,7 @@
     "flag": false
   },
   {
-    "id": 10,
+    "id": "10",
     "name": "Awaken",
     "price": 2.45,
     "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
@@ -90,7 +90,7 @@
     "flag": false
   },
   {
-    "id": 11,
+    "id": "11",
     "name": "Awaken",
     "price": 12.05,
     "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",
@@ -99,7 +99,7 @@
     "flag": false
   },
   {
-    "id": 12,
+    "id": "12",
     "name": "Awaken",
     "price": 9.12,
     "text": "Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonu.",

@@ -1,7 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import './style.scss'
-import MusicaContainer from "./components/musica-container/MusicaContainer";
-import Header from "./components/Header/Header";
+
+import Layout from "./components/Layout/Layout";
+import HomePage from "./components/Pages/homePage/HomePage";
+import Favourites from "./components/Pages/favourites/Favourites";
+import Basket from "./components/Pages/basket/Basket";
+import NotFoundPage from "./components/Pages/notFoundPage/NotFoundPage";
+
+import {Routes, Route} from 'react-router-dom'
+import SinglePage from "./components/Pages/singlePage/SinglePage";
 
 const App = () => {
   const [basket, setBasket] = useState(() => {
@@ -14,24 +21,29 @@ const App = () => {
     const initialValue = JSON.parse(saved)
     return initialValue || []
   })
-  const [item, setItem] = useState([])
+  const [items, setItems] = useState([])
 
   useEffect(() => {
       localStorage.setItem('basket', JSON.stringify(basket))
       localStorage.setItem('stars', JSON.stringify(stars))
   },[basket, stars])
+  useEffect(() => {
+    fetch('./musica.json')
+      .then((response) => response.json())
+      .then(data => {
+        setItems(data)
+      })
+  },[])
 
   const addToBasket = (item) => {
     let isInArray = false
-    basket.map(el => {
-      if (el.id === item.id) {
-        isInArray = true
-      }
-    })
-    if (!isInArray)
-      setBasket([...basket, item])
+      basket.forEach(el => {
+        if (el.id === item.id)
+          isInArray = true
+      })
+        if (!isInArray)
+          setBasket([...basket, item])
   }
-
   const addToStars = (event) => {
     const favorites = event.target.dataset.id
     const allFavorite = [...stars, favorites]
@@ -46,8 +58,15 @@ const App = () => {
 
   return (
     <>
-      <Header orders={basket} stars={stars}/>
-      <MusicaContainer title="LATEST ARRIVALS IN MUSICA" onAdd={addToBasket} addFav={addToStars} stars={stars}/>
+      <Routes>
+        <Route path="/" element={<Layout orders={basket} stars={stars}/>}>
+          <Route index element={<HomePage onAdd={addToBasket} addFav={addToStars} stars={stars} items={items}/>}/>
+          <Route path="/about/:id" element={<SinglePage addFav={addToStars} onAdd={addToBasket} items={items} stars={stars}/>}/>
+          <Route path="/favourites" element={<Favourites/>}/>
+          <Route path="/basket/" element={<Basket/>}/>
+          <Route path="*" element={<NotFoundPage/>}/>
+        </Route>
+      </Routes>
     </>
   )
 }
