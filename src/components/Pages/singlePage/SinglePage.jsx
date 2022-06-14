@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate, Link} from 'react-router-dom'
 import Item from "../../Item/Item";
+import Button from "../../button/Button";
 
 const SinglePage = (props) => {
   const {id} = useParams()
+  const navigate = useNavigate()
   const [element, setElement] = useState([])
   const {onAdd, addFav, items, stars } = props
 
@@ -15,17 +17,23 @@ const SinglePage = (props) => {
       })
   },[id])
 
-  return (
+  const goBack = () => navigate(-1)
+  const goHome = () => navigate('/', {replace: true})
 
+  return (
     <>
-      <Item
-        id={id}
-        key={id}
-        itemInfo={element}
-        onAdd={onAdd}
-        addFav={addFav}
-        stars={stars}
-      />
+      <Button styles="goBack-btn" handlerClick={goBack} text="Go Back"/>
+      <Button styles="goHome-btn" handlerClick={goHome} text="Go Home"/>
+      { element && (
+        <Item
+          id={id}
+          key={id}
+          itemInfo={element}
+          onAdd={onAdd}
+          addFav={addFav}
+          stars={stars}
+        />
+      )}
     </>
   );
 };

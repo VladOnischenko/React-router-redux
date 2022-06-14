@@ -23,6 +23,20 @@
   margin: 0;
 }
 
+.goBack-btn, .goHome-btn{
+  display: inline-block;
+  font-size: 16px;
+  padding: 5px 12px;
+  background: #037fcc;
+  border-radius: 5px;
+  color: #fff;
+  margin:0 15px 15px 0;
+}
+
+.goHome-btn {
+  background: #01c001;
+}
+
 .green {
   background: rgba(130, 194, 102, 0.83);
 }

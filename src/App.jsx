@@ -62,9 +62,9 @@ const App = () => {
         <Route path="/" element={<Layout orders={basket} stars={stars}/>}>
           <Route index element={<HomePage onAdd={addToBasket} addFav={addToStars} stars={stars} items={items}/>}/>
           <Route path="/about/:id" element={<SinglePage addFav={addToStars} onAdd={addToBasket} items={items} stars={stars}/>}/>
-          <Route path="/favourites" element={<Favourites/>}/>
-          <Route path="/basket/" element={<Basket/>}/>
-          <Route path="*" element={<NotFoundPage/>}/>
+          <Route path="/favourites" element={<Favourites />}/>
+          <Route path="/basket/" element={<Basket basket={basket}/>}/>
+          <Route path="*" element={<NotFoundPage />}/>
         </Route>
       </Routes>
     </>
