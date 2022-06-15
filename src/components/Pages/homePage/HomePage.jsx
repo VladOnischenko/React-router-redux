@@ -3,12 +3,12 @@ import './homePage.scss'
 import Item from "../../Item/Item";
 
 const HomePage = (props) => {
-  const { onAdd, addFav, stars } = props
+  const { onAdd, addFav, stars, basket } = props
 
   return (
     <div>
       <h2 className="store-items__title">LATEST ARRIVALS IN MUSICA</h2>
-      <div className="cards-wrapper">
+      <ul className="cards-wrapper">
         {props.items.map( item =>
             <Item
               id={item.id}
@@ -17,9 +17,10 @@ const HomePage = (props) => {
               onAdd={onAdd}
               addFav={addFav}
               stars={stars}
+              basket={basket}
             />
         )}
-      </div>
+      </ul>
     </div>
   );
 };

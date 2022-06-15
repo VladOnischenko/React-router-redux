@@ -11,6 +11,7 @@ import {Routes, Route} from 'react-router-dom'
 import SinglePage from "./components/Pages/singlePage/SinglePage";
 
 const App = () => {
+  const [items, setItems] = useState([])
   const [basket, setBasket] = useState(() => {
     const saved = localStorage.getItem('basket')
     const initialValue = JSON.parse(saved)
@@ -21,7 +22,6 @@ const App = () => {
     const initialValue = JSON.parse(saved)
     return initialValue || []
   })
-  const [items, setItems] = useState([])
 
   useEffect(() => {
       localStorage.setItem('basket', JSON.stringify(basket))
@@ -44,21 +44,12 @@ const App = () => {
     } else {
       setBasket(allItems)
     }
-
-    // let isInArray = false
-    //   basket.forEach(el => {
-    //     if (el.id === item.id)
-    //       isInArray = true
-    //   })
-    //     if (!isInArray)
-    //       setBasket([...basket, item])
   }
-  const addToStars = (event) => {
-    const favorites = Number(event.target.dataset.id)
-    const allFavorite = [...stars, favorites]
-    const filteredFavorite = stars.filter(el => el !== favorites)
+  const addToStars = (item) => {
+    const allFavorite = [...stars, item]
+    const filteredFavorite = stars.filter(el => el.id !== item.id)
 
-    if (stars.includes(favorites)) {
+    if (stars.includes(item)) {
       setStars(filteredFavorite)
     } else {
       setStars(allFavorite)
@@ -69,9 +60,9 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout orders={basket} stars={stars}/>}>
-          <Route index element={<HomePage onAdd={addToBasket} addFav={addToStars} stars={stars} items={items}/>}/>
+          <Route index element={<HomePage onAdd={addToBasket} addFav={addToStars} stars={stars} basket={basket} items={items}/>}/>
           <Route path="/about/:id" element={<SinglePage addFav={addToStars} onAdd={addToBasket} items={items} stars={stars}/>}/>
-          <Route path="/favourites" element={<Favourites />}/>
+          <Route path="/favourites" element={<Favourites basket={basket} stars={stars} addFav={addToStars} onAdd={addToBasket}/>}/>
           <Route path="/basket/" element={<Basket basket={basket} stars={stars} addFav={addToStars} onAdd={addToBasket}/>}/>
           <Route path="*" element={<NotFoundPage />}/>
         </Route>
