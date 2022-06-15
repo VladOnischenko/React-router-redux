@@ -1,19 +1,39 @@
 import React from 'react';
 import './basket.scss'
 import Button from "../../button/Button";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import Item from "../../Item/Item";
+import { BsFillCartXFill } from "react-icons/bs";
 
 const Basket = (props) => {
   const navigate = useNavigate()
+  const { addFav, onAdd, stars, basket} = props
+
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/', {replace: true})
 
   return (
-    <section className="store-items">
+    <>
+      <h2 className="store-items__title">YOUR CART</h2>
       <Button styles="goBack-btn" handlerClick={goBack} text="Go Back"/>
       <Button styles="goHome-btn" handlerClick={goHome} text="Go Home"/>
-      <h1>Basket</h1>
-    </section>
+      <div className="cards-wrapper">
+        { basket.length <= 0
+          ? <p>Your cart is empty</p>
+          : basket.map( item => {
+            return (<Item
+              id={item.id}
+              key={item.id}
+              deleteIcon={<BsFillCartXFill/>}
+              item={item}
+              onAdd={onAdd}
+              addFav={addFav}
+              stars={stars}
+            />)
+          })
+        }
+      </div>
+    </>
   );
 };
 
