@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 const Item = (props) => {
   const [active, setActive] = useState(false)
   const { name, text, price, image, color } = props.item
-  const { id, item, stars, addFav, onAdd, deleteIcon} = props
+  const { id, item, stars, basket, addFav, onAdd, deleteIcon} = props
 
   const changeActive = () => setActive(!active)
 
@@ -16,6 +16,8 @@ const Item = (props) => {
     changeActive()
     onAdd(item)
   }
+
+  const addToCart = () => basket.includes(item) ? null : <Button styles="item__description-btn" text="ADD TO CART" handlerClick={changeActive}/>
 
   return (
     <li className="item" style={{background: color}}>
@@ -30,12 +32,12 @@ const Item = (props) => {
         <p className="item__text">{text}</p>
         <div className="item__description">
           <span className="item__description-price">${price}</span>
-          {onAdd && (<Button styles="item__description-btn" text="ADD TO CART" handlerClick={changeActive}/>)}
+          {addToCart()}
         </div>
       </div>
-      {stars.includes(item.id) ?
-        <img data-id={item.id} onClick={addFav} src="../img/star-after.svg" alt="star-before" className="item__favorite"/> :
-        <img data-id={item.id} onClick={addFav} src="../img/star-before.svg" alt="star-after" className="item__favorite"/>
+      {stars.includes(item) ?
+        <img onClick={() => addFav(item)} src="../img/star-after.svg" alt="star-before" className="item__favorite"/> :
+        <img onClick={() => addFav(item)} src="../img/star-before.svg" alt="star-after" className="item__favorite"/>
       }
       {deleteIcon && (
         <div className="item__delete" onClick={() => onAdd(item)}>

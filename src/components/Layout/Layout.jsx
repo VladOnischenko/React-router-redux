@@ -22,9 +22,9 @@ const Layout = (props) => {
           <NavLink to="/basket" className="icon-wrapper"><InterectiveIcon image="./img/basket.svg" num={orders.length} action={changeCartOpen}/></NavLink>
         </header>
 
-      <ul className="store-items">
+      <div className="store-items">
         <Outlet />
-      </ul>
+      </div>
 
     </>
   );

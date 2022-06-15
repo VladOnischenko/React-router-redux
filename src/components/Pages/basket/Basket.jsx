@@ -27,6 +27,7 @@ const Basket = (props) => {
               deleteIcon={<BsFillCartXFill/>}
               item={item}
               onAdd={onAdd}
+              basket={basket}
               addFav={addFav}
               stars={stars}
             />)
