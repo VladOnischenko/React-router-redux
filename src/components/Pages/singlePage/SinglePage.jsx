@@ -7,11 +7,11 @@ const SinglePage = (props) => {
   const {id} = useParams()
   const navigate = useNavigate()
   const [element, setElement] = useState([])
-  const {onAdd, addFav, items, stars } = props
+  const {  onAdd, addFav, items, stars } = props
 
   useEffect(() =>{
       items.forEach(el => {
-        if (el.id === id){
+        if (el.id === Number(id)){
           setElement(el)
         }
       })
@@ -26,9 +26,9 @@ const SinglePage = (props) => {
       <Button styles="goHome-btn" handlerClick={goHome} text="Go Home"/>
       { element && (
         <Item
-          id={id}
-          key={id}
-          itemInfo={element}
+          id={Number(id)}
+          key={Number(id)}
+          item={element}
           onAdd={onAdd}
           addFav={addFav}
           stars={stars}

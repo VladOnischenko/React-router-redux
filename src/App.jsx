@@ -36,16 +36,25 @@ const App = () => {
   },[])
 
   const addToBasket = (item) => {
-    let isInArray = false
-      basket.forEach(el => {
-        if (el.id === item.id)
-          isInArray = true
-      })
-        if (!isInArray)
-          setBasket([...basket, item])
+    const allItems = [...basket, item]
+    const filteredItems = basket.filter(el => el.id !== item.id)
+
+    if(basket.includes(item)) {
+      setBasket(filteredItems)
+    } else {
+      setBasket(allItems)
+    }
+
+    // let isInArray = false
+    //   basket.forEach(el => {
+    //     if (el.id === item.id)
+    //       isInArray = true
+    //   })
+    //     if (!isInArray)
+    //       setBasket([...basket, item])
   }
   const addToStars = (event) => {
-    const favorites = event.target.dataset.id
+    const favorites = Number(event.target.dataset.id)
     const allFavorite = [...stars, favorites]
     const filteredFavorite = stars.filter(el => el !== favorites)
 
@@ -63,7 +72,7 @@ const App = () => {
           <Route index element={<HomePage onAdd={addToBasket} addFav={addToStars} stars={stars} items={items}/>}/>
           <Route path="/about/:id" element={<SinglePage addFav={addToStars} onAdd={addToBasket} items={items} stars={stars}/>}/>
           <Route path="/favourites" element={<Favourites />}/>
-          <Route path="/basket/" element={<Basket basket={basket}/>}/>
+          <Route path="/basket/" element={<Basket basket={basket} stars={stars} addFav={addToStars} onAdd={addToBasket}/>}/>
           <Route path="*" element={<NotFoundPage />}/>
         </Route>
       </Routes>

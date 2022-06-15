@@ -10,11 +10,11 @@ const Favourites = () => {
   const goHome = () => navigate('/', {replace: true})
 
   return (
-    <section className="store-items">
+    <>
+      <h2 className="store-items__title">YOUR FAVOURITES</h2>
       <Button styles="goBack-btn" handlerClick={goBack} text="Go Back"/>
       <Button styles="goHome-btn" handlerClick={goHome} text="Go Home"/>
-        <h1>Favourites</h1>
-    </section>
+    </>
   );
 };
 

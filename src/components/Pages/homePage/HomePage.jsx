@@ -7,12 +7,13 @@ const HomePage = (props) => {
 
   return (
     <div>
+      <h2 className="store-items__title">LATEST ARRIVALS IN MUSICA</h2>
       <div className="cards-wrapper">
         {props.items.map( item =>
             <Item
-              id={item.id.toString()}
+              id={item.id}
               key={item.id}
-              itemInfo={item}
+              item={item}
               onAdd={onAdd}
               addFav={addFav}
               stars={stars}

@@ -7,18 +7,18 @@ import {Link} from "react-router-dom";
 
 const Item = (props) => {
   const [active, setActive] = useState(false)
-  const { name, text, price, image, color } = props.itemInfo
-  const { id, itemInfo, stars, addFav, onAdd} = props
+  const { name, text, price, image, color } = props.item
+  const { id, item, stars, addFav, onAdd, deleteIcon} = props
 
   const changeActive = () => setActive(!active)
 
   const onAddInfo = () => {
     changeActive()
-    onAdd(itemInfo)
+    onAdd(item)
   }
 
   return (
-    <div className="item" style={{background: color}}>
+    <li className="item" style={{background: color}}>
       <Link to={`/about/${id}`}>
         <div className="item__img">
           <img src={image} alt="image"/>
@@ -30,13 +30,18 @@ const Item = (props) => {
         <p className="item__text">{text}</p>
         <div className="item__description">
           <span className="item__description-price">${price}</span>
-          <Button styles="item__description-btn" text="ADD TO CART" handlerClick={changeActive}/>
+          {onAdd && (<Button styles="item__description-btn" text="ADD TO CART" handlerClick={changeActive}/>)}
         </div>
       </div>
-      {stars.includes(itemInfo.id) ?
-        <img data-id={itemInfo.id} onClick={addFav} src="../img/star-after.svg" alt="star-before" className="item__favorite"/> :
-        <img data-id={itemInfo.id} onClick={addFav} src="../img/star-before.svg" alt="star-after" className="item__favorite"/>
+      {stars.includes(item.id) ?
+        <img data-id={item.id} onClick={addFav} src="../img/star-after.svg" alt="star-before" className="item__favorite"/> :
+        <img data-id={item.id} onClick={addFav} src="../img/star-before.svg" alt="star-after" className="item__favorite"/>
       }
+      {deleteIcon && (
+        <div className="item__delete" onClick={() => onAdd(item)}>
+          {deleteIcon}
+        </div>
+      )}
 
       {active && <Modal
         header={name}
@@ -46,7 +51,7 @@ const Item = (props) => {
         active={changeActive}
       />}
 
-    </div>
+    </li>
   );
 }
 
