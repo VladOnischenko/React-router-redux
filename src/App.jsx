@@ -17,6 +17,7 @@ const App = () => {
     const initialValue = JSON.parse(saved)
     return initialValue || []
   })
+
   const [stars, setStars] = useState(() => {
     const saved = localStorage.getItem('stars')
     const initialValue = JSON.parse(saved)
@@ -37,7 +38,7 @@ const App = () => {
 
   const addToBasket = (item) => {
     const allItems = [...basket, item]
-    const filteredItems = basket.filter(el => el.id !== item.id)
+    const filteredItems = basket.filter(el => el !== item)
 
     if(basket.includes(item)) {
       setBasket(filteredItems)
