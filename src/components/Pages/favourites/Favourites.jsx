@@ -3,7 +3,6 @@ import './favourites.scss'
 import Button from "../../button/Button";
 import {useNavigate} from "react-router-dom";
 import Item from "../../Item/Item";
-import {BsFillCartXFill} from "react-icons/bs";
 
 const Favourites = (props) => {
   const navigate = useNavigate()
@@ -21,9 +20,10 @@ const Favourites = (props) => {
         { stars.length <= 0
           ? <p>No favourites</p>
           : stars.map( item => {
+            const keyId = JSON.parse(item).id
             return (<Item
-              id={item.id}
-              key={item.id}
+              key={keyId}
+              id={keyId}
               deleteIcon={null}
               item={item}
               onAdd={onAdd}

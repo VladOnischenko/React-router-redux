@@ -7,7 +7,7 @@ import Favourites from "./components/Pages/favourites/Favourites";
 import Basket from "./components/Pages/basket/Basket";
 import NotFoundPage from "./components/Pages/notFoundPage/NotFoundPage";
 
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, Navigate} from 'react-router-dom'
 import SinglePage from "./components/Pages/singlePage/SinglePage";
 
 const App = () => {
@@ -17,7 +17,6 @@ const App = () => {
     const initialValue = JSON.parse(saved)
     return initialValue || []
   })
-
   const [stars, setStars] = useState(() => {
     const saved = localStorage.getItem('stars')
     const initialValue = JSON.parse(saved)
@@ -32,7 +31,8 @@ const App = () => {
     fetch('./musica.json')
       .then((response) => response.json())
       .then(data => {
-        setItems(data)
+        const test = data.map(item => JSON.stringify(item))
+        setItems(test)
       })
   },[])
 
@@ -48,7 +48,7 @@ const App = () => {
   }
   const addToStars = (item) => {
     const allFavorite = [...stars, item]
-    const filteredFavorite = stars.filter(el => el.id !== item.id)
+    const filteredFavorite = stars.filter(el => el !== item)
 
     if (stars.includes(item)) {
       setStars(filteredFavorite)
@@ -62,9 +62,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout orders={basket} stars={stars}/>}>
           <Route index element={<HomePage onAdd={addToBasket} addFav={addToStars} stars={stars} basket={basket} items={items}/>}/>
-          <Route path="/about/:id" element={<SinglePage addFav={addToStars} onAdd={addToBasket} items={items} stars={stars}/>}/>
-          <Route path="/favourites" element={<Favourites basket={basket} stars={stars} addFav={addToStars} onAdd={addToBasket}/>}/>
+          <Route path="/about/:id" element={<SinglePage addFav={addToStars} onAdd={addToBasket} items={items} stars={stars} basket={basket}/>}/>
+          <Route path="/favourites/" element={<Favourites basket={basket} stars={stars} addFav={addToStars} onAdd={addToBasket}/>}/>
+          <Route path="/favourites/:id" element={<Navigate to="/about/:id" />}/>
           <Route path="/basket/" element={<Basket basket={basket} stars={stars} addFav={addToStars} onAdd={addToBasket}/>}/>
+          <Route path="/basket/:id" element={<Navigate to="/about/:id" />}/>
           <Route path="*" element={<NotFoundPage />}/>
         </Route>
       </Routes>
