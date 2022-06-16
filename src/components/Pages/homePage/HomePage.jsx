@@ -9,17 +9,18 @@ const HomePage = (props) => {
     <div>
       <h2 className="store-items__title">LATEST ARRIVALS IN MUSICA</h2>
       <ul className="cards-wrapper">
-        {props.items.map( item =>
-            <Item
-              id={item.id}
-              key={item.id}
-              item={item}
-              onAdd={onAdd}
-              addFav={addFav}
-              stars={stars}
-              basket={basket}
-            />
-        )}
+        {props.items.map( item => {
+          const keyId = JSON.parse(item).id
+          return <Item
+            key={keyId}
+            id={keyId}
+            item={item}
+            onAdd={onAdd}
+            addFav={addFav}
+            stars={stars}
+            basket={basket}
+          />
+        })}
       </ul>
     </div>
   );

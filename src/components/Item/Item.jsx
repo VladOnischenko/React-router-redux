@@ -7,8 +7,8 @@ import {Link} from "react-router-dom";
 
 const Item = (props) => {
   const [active, setActive] = useState(false)
-  const { name, text, price, image, color } = props.item
   const { id, item, stars, basket, addFav, onAdd, deleteIcon} = props
+  const { name, text, price, image, color } = JSON.parse(item)
 
   const changeActive = () => setActive(!active)
 
@@ -17,15 +17,6 @@ const Item = (props) => {
     onAdd(item)
   }
   const addToCart = () => basket.includes(item) ? null : <Button styles="item__description-btn" text="ADD TO CART" handlerClick={changeActive}/>
-
-  const equalItems = () => basket.filter(el => JSON.stringify(el) === JSON.stringify(item))
-
-  //TODO --> Нужно проверить на равенство basket каждого obj
-  //TODO --> Нужно проверить на равенство basket каждого obj
-  //TODO --> Нужно проверить на равенство basket каждого obj
-
-  // console.log(typeof basket)
-  // console.log(basket)
 
   return (
     <li className="item" style={{background: color}}>
@@ -40,7 +31,6 @@ const Item = (props) => {
         <p className="item__text">{text}</p>
         <div className="item__description">
           <span className="item__description-price">${price}</span>
-          {/*{ equalItems() && <Button styles="item__description-btn" text="ADD TO CART" handlerClick={changeActive}/>}*/}
           {addToCart()}
         </div>
       </div>

@@ -21,9 +21,10 @@ const Basket = (props) => {
         { basket.length <= 0
           ? <p>Your cart is empty</p>
           : basket.map( item => {
+            const keyId = JSON.parse(item).id
             return (<Item
-              id={item.id}
-              key={item.id}
+              key={keyId}
+              id={keyId}
               deleteIcon={<BsFillCartXFill/>}
               item={item}
               onAdd={onAdd}
