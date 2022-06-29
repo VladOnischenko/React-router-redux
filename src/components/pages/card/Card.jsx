@@ -1,16 +1,16 @@
 import React from 'react';
-import './basket.scss'
+import './card.scss'
 import Button from "../../button/Button";
 import {useNavigate} from "react-router-dom";
-import Item from "../../Item/Item";
+import Item from "../../item/Item";
 import { BsFillCartXFill } from "react-icons/bs";
 import {useDispatch, useSelector} from "react-redux";
 import {addToBasket, addToStars} from "../../../store/actions";
 
-const Basket = (props) => {
+const Card = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { basket, stars } = useSelector(state => state)
+  const { card, stars } = useSelector(state => state)
 
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/', {replace: true})
@@ -24,9 +24,9 @@ const Basket = (props) => {
       <Button styles="goBack-btn" handlerClick={goBack} text="Go Back"/>
       <Button styles="goHome-btn" handlerClick={goHome} text="Go Home"/>
       <div className="cards-wrapper">
-        { basket.length <= 0
+        { card.length <= 0
           ? <p>Your cart is empty</p>
-          : basket.map( item => {
+          : card.map( item => {
             const keyId = JSON.parse(item).id
             return (<Item
               key={keyId}
@@ -34,7 +34,7 @@ const Basket = (props) => {
               deleteIcon={<BsFillCartXFill/>}
               item={item}
               onAdd={onAdd}
-              basket={basket}
+              card={card}
               addFav={addFav}
               stars={stars}
             />)
@@ -45,4 +45,4 @@ const Basket = (props) => {
   );
 };
 
-export default Basket;
+export default Card;

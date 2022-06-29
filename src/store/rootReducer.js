@@ -2,8 +2,7 @@ import {
   GET_ITEMS_FAILURE,
   GET_ITEMS_STARTED,
   GET_ITEMS_SUCCESS,
-  // GET_STARS_FROM_STORAGE,
-  SET_ITEMS_BASKET,
+  SET_ITEMS_CARD,
   SET_ITEMS_FAVORITES
 } from "./types";
 
@@ -30,19 +29,15 @@ export const rootReducer = (state = {}, action) => {
         error: action.payload.error
       }
 
-    // case GET_STARS_FROM_STORAGE: {
-    //     return {...state, stars: action.payload}
-    // }
-
-    case SET_ITEMS_BASKET: {
-      const { basket } = state
+    case SET_ITEMS_CARD: {
+      const { card } = state
       const { item } = action.payload
-      const allItems = [...basket, item]
-      const filteredItems = basket.filter(el => el !== item)
-      if(state.basket.includes(item)) {
-        return {...state, basket: filteredItems}
+      const allItems = [...card, item]
+      const filteredItems = card.filter(el => el !== item)
+      if(state.card.includes(item)) {
+        return {...state, card: filteredItems}
       } else {
-        return {...state, basket: allItems}
+        return {...state, card: allItems}
       }
     }
 

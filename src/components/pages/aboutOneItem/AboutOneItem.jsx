@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {useParams, useNavigate} from 'react-router-dom'
-import Item from "../../Item/Item";
+import Item from "../../item/Item";
 import Button from "../../button/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {addToBasket, addToStars} from "../../../store/actions";
 
-const SinglePage = () => {
+const AboutOneItem = () => {
   const {id} = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { items, basket, stars } = useSelector(state => state)
+  const { items, card, stars } = useSelector(state => state)
   const [element, setElement] = useState([])
 
   useEffect(() =>{
@@ -39,11 +39,11 @@ const SinglePage = () => {
           onAdd={onAdd}
           addFav={addFav}
           stars={stars}
-          basket={basket}
+          card={card}
         />
       )}
     </>
   );
 };
 
-export default SinglePage;
+export default AboutOneItem;
