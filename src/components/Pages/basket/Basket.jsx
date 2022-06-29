@@ -4,13 +4,19 @@ import Button from "../../button/Button";
 import {useNavigate} from "react-router-dom";
 import Item from "../../Item/Item";
 import { BsFillCartXFill } from "react-icons/bs";
+import {useDispatch, useSelector} from "react-redux";
+import {addToBasket, addToStars} from "../../../store/actions";
 
 const Basket = (props) => {
   const navigate = useNavigate()
-  const { addFav, onAdd, stars, basket} = props
+  const dispatch = useDispatch()
+  const { basket, stars } = useSelector(state => state)
 
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/', {replace: true})
+
+  const onAdd = (item) => dispatch(addToBasket(item))
+  const addFav = (item) => dispatch(addToStars(item))
 
   return (
     <>
