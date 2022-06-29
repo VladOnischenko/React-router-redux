@@ -1,19 +1,14 @@
 import {
   GET_ITEMS_FAILURE,
   GET_ITEMS_STARTED,
-  GET_ITEMS_SUCCESS, GET_STARS_FROM_STORAGE,
-  SET_ITEMS_BASKET, SET_ITEMS_FAVORITES
+  GET_ITEMS_SUCCESS,
+  // GET_STARS_FROM_STORAGE,
+  SET_ITEMS_BASKET,
+  SET_ITEMS_FAVORITES
 } from "./types";
 
-const initialState = {
-  items: [],
-  basket: [],
-  stars: [],
-  loading: false,
-  error: null,
-}
 
-export const rootReducer = (state = initialState, action) => {
+export const rootReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_ITEMS_STARTED :
       return {
@@ -35,10 +30,9 @@ export const rootReducer = (state = initialState, action) => {
         error: action.payload.error
       }
 
-    case GET_STARS_FROM_STORAGE: {
-      console.log("ACTION",action.payload)
-        return {...state, stars: action.payload}
-    }
+    // case GET_STARS_FROM_STORAGE: {
+    //     return {...state, stars: action.payload}
+    // }
 
     case SET_ITEMS_BASKET: {
       const { basket } = state

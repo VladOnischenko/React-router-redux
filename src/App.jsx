@@ -16,7 +16,6 @@ import {useDispatch, useSelector} from "react-redux";
 const App = () => {
   const dispatch = useDispatch()
   const { stars, basket } = useSelector(state => state)
-  console.log('stars 1', stars)
   //TODO -->>>>>>
   // const [basket, setBasket] = useState(() => {
   //   const saved = localStorage.getItem('basket')
@@ -41,13 +40,13 @@ const App = () => {
 
   useEffect(() => {
       dispatch(getItems())
-      dispatch(getStarsFromStorage())
+      // dispatch(getStarsFromStorage())
   }, [])
 
   useEffect(() => {
-      localStorage.setItem('basket', JSON.stringify(basket))
-      localStorage.setItem('stars', JSON.stringify(stars))
-  },[basket, stars])
+      // localStorage.setItem('basket', JSON.stringify(basket))
+      // localStorage.setItem('stars', JSON.stringify(stars))
+  })
 
 
   return (
