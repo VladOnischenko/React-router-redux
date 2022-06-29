@@ -1,7 +1,7 @@
 import {
   GET_ITEMS_FAILURE,
   GET_ITEMS_SUCCESS,
-  GET_STARS_FROM_STORAGE,
+  // GET_STARS_FROM_STORAGE,
   SET_ITEMS_BASKET,
   SET_ITEMS_FAVORITES
 } from "./types";
@@ -16,15 +16,14 @@ export const addToStars = (item) =>({
   payload: { item: item }
 })
 
-export const getStarsFromStorage =  () => {
-    const saved = localStorage.getItem('stars')
-    const initialValue = JSON.parse(saved)
-    console.log("initialValue", initialValue)
-  return {
-    type: GET_STARS_FROM_STORAGE,
-    payload: initialValue || null
-  }
-}
+// export const getStarsFromStorage =  () => {
+//     const saved = localStorage.getItem('stars')
+//     const initialValue = JSON.parse(saved)
+//   return {
+//     type: GET_STARS_FROM_STORAGE,
+//     payload: initialValue || []
+//   }
+// }
 
 export const getItems = () => async dispatch => {
   try{
