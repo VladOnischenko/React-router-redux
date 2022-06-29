@@ -1,11 +1,11 @@
 import React from 'react';
 import './homePage.scss'
-import Item from "../../Item/Item";
+import Item from "../../item/Item";
 import {useDispatch, useSelector} from "react-redux";
 import {addToBasket, addToStars} from "../../../store/actions";
 
 const HomePage = () => {
-  const { items, basket, stars } = useSelector(state => state)
+  const { items, card, stars } = useSelector(state => state)
   const dispatch = useDispatch()
 
   const onAdd = (item) => dispatch(addToBasket(item))
@@ -24,7 +24,7 @@ const HomePage = () => {
             onAdd={onAdd}
             addFav={addFav}
             stars={stars}
-            basket={basket}
+            card={card}
           />
         })}
       </ul>

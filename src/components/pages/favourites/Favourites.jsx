@@ -2,14 +2,14 @@ import React from 'react';
 import './favourites.scss'
 import Button from "../../button/Button";
 import {useNavigate} from "react-router-dom";
-import Item from "../../Item/Item";
+import Item from "../../item/Item";
 import {addToBasket, addToStars} from "../../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
 
 const Favourites = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { basket, stars } = useSelector(state => state)
+  const { card, stars } = useSelector(state => state)
 
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/', {replace: true})
@@ -33,7 +33,7 @@ const Favourites = () => {
               deleteIcon={null}
               item={item}
               onAdd={onAdd}
-              basket={basket}
+              card={card}
               addFav={addFav}
               stars={stars}
             />)
