@@ -2,12 +2,11 @@ import {
   GET_ITEMS_FAILURE,
   GET_ITEMS_STARTED,
   GET_ITEMS_SUCCESS,
-  SET_ITEMS_CARD,
+  SET_ITEMS_CART,
   SET_ITEMS_FAVORITES
 } from "./types";
 
-
-export const rootReducer = (state = {}, action) => {
+export const rootReducer = (state, action) => {
   switch (action.type) {
     case GET_ITEMS_STARTED :
       return {
@@ -18,7 +17,7 @@ export const rootReducer = (state = {}, action) => {
     case GET_ITEMS_SUCCESS:
       return {
         ...state,
-        loading: true,
+        loading: false,
         items: action.payload.items
       }
 
@@ -29,15 +28,16 @@ export const rootReducer = (state = {}, action) => {
         error: action.payload.error
       }
 
-    case SET_ITEMS_CARD: {
-      const { card } = state
+    case SET_ITEMS_CART: {
+      const { cart } = state
       const { item } = action.payload
-      const allItems = [...card, item]
-      const filteredItems = card.filter(el => el !== item)
-      if(state.card.includes(item)) {
-        return {...state, card: filteredItems}
+      const allItems = [...cart, item]
+      const filteredItems = cart.filter(el => el !== item)
+
+      if(state.cart.includes(item)) {
+        return {...state, cart: filteredItems}
       } else {
-        return {...state, card: allItems}
+        return {...state, cart: allItems}
       }
     }
 

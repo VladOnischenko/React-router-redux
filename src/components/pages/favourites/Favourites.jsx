@@ -9,7 +9,7 @@ import {useDispatch, useSelector} from "react-redux";
 const Favourites = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { card, stars } = useSelector(state => state)
+  const { cart, stars } = useSelector(state => state)
 
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/', {replace: true})
@@ -22,7 +22,7 @@ const Favourites = () => {
       <h2 className="store-items__title">YOUR FAVOURITES</h2>
       <Button styles="goBack-btn" handlerClick={goBack} text="Go Back"/>
       <Button styles="goHome-btn" handlerClick={goHome} text="Go Home"/>
-      <div className="cards-wrapper">
+      <div className="carts-wrapper">
         { stars.length <= 0
           ? <p>No favourites</p>
           : stars.map( item => {
@@ -33,7 +33,7 @@ const Favourites = () => {
               deleteIcon={null}
               item={item}
               onAdd={onAdd}
-              card={card}
+              cart={cart}
               addFav={addFav}
               stars={stars}
             />)

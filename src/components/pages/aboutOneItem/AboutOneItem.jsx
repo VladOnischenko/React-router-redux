@@ -9,7 +9,7 @@ const AboutOneItem = () => {
   const {id} = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { items, card, stars } = useSelector(state => state)
+  const { items, cart, stars } = useSelector(state => state)
   const [element, setElement] = useState([])
 
   useEffect(() =>{
@@ -39,7 +39,7 @@ const AboutOneItem = () => {
           onAdd={onAdd}
           addFav={addFav}
           stars={stars}
-          card={card}
+          cart={cart}
         />
       )}
     </>

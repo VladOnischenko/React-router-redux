@@ -4,7 +4,8 @@ import thunk from "redux-thunk";
 
 const initialState = {
   items: [],
-  card: [],
+  oneItem: [],
+  cart: [],
   stars: [],
   loading: false,
   error: null,
