@@ -3,9 +3,10 @@ import './homePage.scss'
 import Item from "../../item/Item";
 import {useDispatch, useSelector} from "react-redux";
 import {addToBasket, addToStars} from "../../../store/actions";
+import LoaderSpinner from "../../loader-spinner/LoaderSpinner";
 
 const HomePage = () => {
-  const { items, card, stars } = useSelector(state => state)
+  const { items, cart, stars, loading } = useSelector(state => state)
   const dispatch = useDispatch()
 
   const onAdd = (item) => dispatch(addToBasket(item))
@@ -14,8 +15,8 @@ const HomePage = () => {
   return (
     <div>
       <h2 className="store-items__title">LATEST ARRIVALS IN MUSICA</h2>
-      <ul className="cards-wrapper">
-        {items.map( item => {
+      <ul className="carts-wrapper">
+        { !loading ?  items.map( item => {
           const keyId = JSON.parse(item).id
           return <Item
             key={keyId}
@@ -24,9 +25,9 @@ const HomePage = () => {
             onAdd={onAdd}
             addFav={addFav}
             stars={stars}
-            card={card}
+            cart={cart}
           />
-        })}
+        }) : <LoaderSpinner />}
       </ul>
     </div>
   );

@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 
 const Item = (props) => {
   const [active, setActive] = useState(false)
-  const { id, item, stars, card, addFav, onAdd, deleteIcon} = props
+  const { id, item, stars, cart, addFav, onAdd, deleteIcon} = props
   const { name, text, price, image, color } = JSON.parse(item)
 
   const changeActive = () => setActive(!active)
@@ -16,7 +16,7 @@ const Item = (props) => {
     changeActive()
     onAdd(item)
   }
-  const addToCart = () => card.includes(item) ? null : <Button styles="item__description-btn" text="ADD TO CART" handlerClick={changeActive}/>
+  const addToCart = () => cart.includes(item) ? null : <Button styles="item__description-btn" text="ADD TO CART" handlerClick={changeActive}/>
 
   return (
     <li className="item" style={{background: color}}>

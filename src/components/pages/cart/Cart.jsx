@@ -1,5 +1,5 @@
 import React from 'react';
-import './card.scss'
+import './cart.scss'
 import Button from "../../button/Button";
 import {useNavigate} from "react-router-dom";
 import Item from "../../item/Item";
@@ -7,10 +7,10 @@ import { BsFillCartXFill } from "react-icons/bs";
 import {useDispatch, useSelector} from "react-redux";
 import {addToBasket, addToStars} from "../../../store/actions";
 
-const Card = () => {
+const Cart = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { card, stars } = useSelector(state => state)
+  const { cart, stars } = useSelector(state => state)
 
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/', {replace: true})
@@ -23,10 +23,10 @@ const Card = () => {
       <h2 className="store-items__title">YOUR CART</h2>
       <Button styles="goBack-btn" handlerClick={goBack} text="Go Back"/>
       <Button styles="goHome-btn" handlerClick={goHome} text="Go Home"/>
-      <div className="cards-wrapper">
-        { card.length <= 0
+      <div className="carts-wrapper">
+        { cart.length <= 0
           ? <p>Your cart is empty</p>
-          : card.map( item => {
+          : cart.map( item => {
             const keyId = JSON.parse(item).id
             return (<Item
               key={keyId}
@@ -34,7 +34,7 @@ const Card = () => {
               deleteIcon={<BsFillCartXFill/>}
               item={item}
               onAdd={onAdd}
-              card={card}
+              cart={cart}
               addFav={addFav}
               stars={stars}
             />)
@@ -45,4 +45,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default Cart;

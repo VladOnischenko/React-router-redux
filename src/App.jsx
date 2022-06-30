@@ -4,13 +4,13 @@ import './style.scss'
 import Layout from "./components/layout/Layout";
 import HomePage from "./components/pages/homePage/HomePage";
 import Favourites from "./components/pages/favourites/Favourites";
-import Card from "./components/pages/card/Card";
+import Cart from "./components/pages/cart/Cart";
 import NotFoundPage from "./components/pages/notFoundPage/NotFoundPage";
 
 import {Routes, Route, Navigate} from 'react-router-dom'
 import AboutOneItem from "./components/pages/aboutOneItem/AboutOneItem";
-import {getItems} from "./store/actions";
 import {useDispatch} from "react-redux";
+import {getItems} from "./store/actions";
 
 const App = () => {
   const dispatch = useDispatch()
@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/about/:id" element={<AboutOneItem />}/>
           <Route path="/favourites/" element={<Favourites  />}/>
           <Route path="/favourites/:id" element={<Navigate to="/about/:id" />}/>
-          <Route path="/basket/" element={<Card />}/>
+          <Route path="/basket/" element={<Cart />}/>
           <Route path="/basket/:id" element={<Navigate to="/about/:id" />}/>
           <Route path="*" element={<NotFoundPage />}/>
         </Route>
