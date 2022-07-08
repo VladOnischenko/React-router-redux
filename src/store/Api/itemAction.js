@@ -1,22 +1,6 @@
-import {
-  GET_ITEMS_FAILURE, GET_ITEMS_STARTED,
-  GET_ITEMS_SUCCESS,
-  SET_ITEMS_CART,
-  SET_ITEMS_FAVORITES
-} from "./types";
+import {GET_ITEMS_FAILURE, GET_ITEMS_STARTED, GET_ITEMS_SUCCESS} from "../types";
 
 export const loaderOn = () => ({ type: GET_ITEMS_STARTED })
-
-export const addToBasket = (item) => ({
-  type: SET_ITEMS_CART,
-  payload: { item: item }
-})
-
-export const addToStars = (item) =>({
-  type: SET_ITEMS_FAVORITES,
-  payload: { item: item }
-})
-
 export const getItems = () =>  dispatch => {
   dispatch(loaderOn())
   setTimeout(async () => {

@@ -2,8 +2,9 @@ import React from 'react';
 import './homePage.scss'
 import Item from "../../item/Item";
 import {useDispatch, useSelector} from "react-redux";
-import {addToBasket, addToStars} from "../../../store/actions";
 import LoaderSpinner from "../../loader-spinner/LoaderSpinner";
+import {addToBasket} from "../../../store/Cart/cartAction";
+import {addToStars} from "../../../store/Favourites/favouriteAction";
 
 const HomePage = () => {
   const { cartReducer, favouriteReducer, itemReducer } = useSelector(state => state)

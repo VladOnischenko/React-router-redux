@@ -5,7 +5,8 @@ import {useNavigate} from "react-router-dom";
 import Item from "../../item/Item";
 import { BsFillCartXFill } from "react-icons/bs";
 import {useDispatch, useSelector} from "react-redux";
-import {addToBasket, addToStars} from "../../../store/actions";
+import {addToBasket} from "../../../store/Cart/cartAction";
+import {addToStars} from "../../../store/Favourites/favouriteAction";
 
 const Cart = () => {
   const navigate = useNavigate()
