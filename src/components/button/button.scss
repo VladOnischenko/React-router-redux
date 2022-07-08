@@ -23,7 +23,7 @@
   margin: 0;
 }
 
-.goBack-btn, .goHome-btn{
+.goBack-btn, .goHome-btn, .buy-btn{
   display: inline-block;
   font-size: 16px;
   padding: 5px 12px;
@@ -35,6 +35,10 @@
 
 .goHome-btn {
   background: #01c001;
+}
+
+.buy-btn {
+  background: #b2271a;
 }
 
 .green {
