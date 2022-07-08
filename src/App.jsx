@@ -10,7 +10,8 @@ import NotFoundPage from "./components/pages/notFoundPage/NotFoundPage";
 import {Routes, Route, Navigate} from 'react-router-dom'
 import AboutOneItem from "./components/pages/aboutOneItem/AboutOneItem";
 import {useDispatch} from "react-redux";
-import {getItems} from "./store/actions";
+import {getItems} from "./store/Api/itemAction";
+
 
 const App = () => {
   const dispatch = useDispatch()

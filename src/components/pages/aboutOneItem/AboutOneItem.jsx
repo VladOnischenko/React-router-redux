@@ -3,13 +3,17 @@ import {useParams, useNavigate} from 'react-router-dom'
 import Item from "../../item/Item";
 import Button from "../../button/Button";
 import {useDispatch, useSelector} from "react-redux";
-import {addToBasket, addToStars} from "../../../store/actions";
+import {addToBasket} from "../../../store/Cart/cartAction";
+import {addToStars} from "../../../store/Favourites/favouriteAction";
 
 const AboutOneItem = () => {
   const {id} = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const { items, cart, stars } = useSelector(state => state)
+  const { cartReducer, favouriteReducer, itemReducer } = useSelector(state => state )
+  const { cart } = cartReducer
+  const { stars } = favouriteReducer
+  const { items } = itemReducer
   const [element, setElement] = useState([])
 
   useEffect(() =>{

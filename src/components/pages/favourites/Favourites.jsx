@@ -3,8 +3,9 @@ import './favourites.scss'
 import Button from "../../button/Button";
 import {useNavigate} from "react-router-dom";
 import Item from "../../item/Item";
-import {addToBasket, addToStars} from "../../../store/actions";
 import {useDispatch, useSelector} from "react-redux";
+import {addToBasket} from "../../../store/Cart/cartAction";
+import {addToStars} from "../../../store/Favourites/favouriteAction";
 
 const Favourites = () => {
   const navigate = useNavigate()
