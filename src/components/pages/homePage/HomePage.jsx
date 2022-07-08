@@ -6,7 +6,10 @@ import {addToBasket, addToStars} from "../../../store/actions";
 import LoaderSpinner from "../../loader-spinner/LoaderSpinner";
 
 const HomePage = () => {
-  const { items, cart, stars, loading } = useSelector(state => state)
+  const { cartReducer, favouriteReducer, itemReducer } = useSelector(state => state)
+  const { cart } = cartReducer
+  const { stars } = favouriteReducer
+  const { items, loading } = itemReducer
   const dispatch = useDispatch()
 
   const onAdd = (item) => dispatch(addToBasket(item))

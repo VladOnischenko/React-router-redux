@@ -9,7 +9,9 @@ import {useDispatch, useSelector} from "react-redux";
 const Favourites = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { cart, stars } = useSelector(state => state)
+  const { cartReducer, favouriteReducer } = useSelector(state => state)
+  const { cart } = cartReducer
+  const { stars } = favouriteReducer
 
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/', {replace: true})
