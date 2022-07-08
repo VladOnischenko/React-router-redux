@@ -19,7 +19,7 @@ const Layout = () => {
         <header className="header">
           <NavLink to="/" className="icon-wrapper"><IoIosHome className="home-icon"/></NavLink>
           <NavLink to="/favourites" className="icon-wrapper"><InterectiveIcon image="./img/star-after.svg" num={favouriteReducer.stars.length} action={changeFavorites}/></NavLink>
-          <NavLink to="/basket" className="icon-wrapper"><InterectiveIcon image="./img/basket.svg" num={cartReducer.cart.length} action={changeCartOpen}/></NavLink>
+          <NavLink to="/cart" className="icon-wrapper"><InterectiveIcon image="./img/basket.svg" num={cartReducer.cart.length} action={changeCartOpen}/></NavLink>
         </header>
 
       <div className="store-items">
