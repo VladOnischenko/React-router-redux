@@ -2,9 +2,11 @@ import React from 'react';
 import * as Yup from 'yup'
 import {Form, Formik} from "formik";
 import FormControl from "../../form/FormControl";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {clearBasket} from "../../../store/Cart/cartAction";
 
 const CartFormContainer = () => {
+  const dispatch = useDispatch()
   const { cartReducer } = useSelector(state => state)
   const { cart } = cartReducer
   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
@@ -35,7 +37,12 @@ const CartFormContainer = () => {
       .required("Phone is required"),
   })
 
-  const onSubmit = (values) => console.log("Submit form", values)
+  const onSubmit = (values) => {
+    setTimeout(() => {
+      console.log("Submit form", values)
+      dispatch(clearBasket())
+    },1500)
+  }
 
   const priceCounter = () => {
     let totalPrice = null
@@ -51,7 +58,7 @@ const CartFormContainer = () => {
   }
 
   return (
-    <Formik
+      <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
@@ -70,7 +77,7 @@ const CartFormContainer = () => {
               disabled={!formik.isValid || formik.isSubmitting}
               className={
                 !formik.isValid || formik.isSubmitting ? 'custom-btn btn-disabled' : 'custom-btn btn-enabled'
-            }>Checkout</button>
+              }>Checkout</button>
           </Form>
       }
     </Formik>
