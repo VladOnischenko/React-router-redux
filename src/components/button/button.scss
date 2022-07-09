@@ -1,6 +1,8 @@
 .custom-btn {
   padding: 5px 10px;
   border: none;
+  font-size: 16px;
+  text-transform: uppercase;
   box-shadow: 1px 1px 11px 3px rgba(0,0,0,0.2);
   width: 160px;
   height: 41px;
@@ -46,4 +48,18 @@
 }
 .red {
   background: #E74C3C;
+}
+
+.btn-disabled {
+  background: rgba(255, 68, 86, 0.7);
+  &:hover {
+    transform: none;
+  }
+}
+
+.btn-enabled {
+  background: rgba(170, 252, 170, 0.7);
+  &:hover {
+    transform: none;
+  }
 }

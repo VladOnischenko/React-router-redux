@@ -17,7 +17,7 @@ const Cart = () => {
 
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/', {replace: true})
-  const cartForm = () => navigate('/', {replace: true})
+  const cartFormPage = () => navigate('/cartForm', {replace: true})
 
   const onAdd = (item) => dispatch(addToBasket(item))
   const addFav = (item) => dispatch(addToStars(item))
@@ -27,7 +27,7 @@ const Cart = () => {
       <h2 className="store-items__title">YOUR CART</h2>
       <Button styles="goBack-btn" handlerClick={goBack} text="Go Back"/>
       <Button styles="goHome-btn" handlerClick={goHome} text="Go Home"/>
-      { cart.length > 0 && <Button styles="buy-btn" handlerClick={cartForm} text="Buy"/>}
+      { cart.length > 0 && <Button styles="buy-btn" handlerClick={cartFormPage} text="Buy"/>}
       <div className="carts-wrapper">
         { cart.length <= 0
           ? <p>Your cart is empty</p>

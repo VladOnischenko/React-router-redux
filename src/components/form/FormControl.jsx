@@ -4,8 +4,8 @@ import TextArea from "./TextArea";
 
 const FormControl = ({control, ...rest}) => {
   switch (control) {
-    case 'input':
-      return <Input {...rest}/>
+    case 'text':
+      return <Input control={control} {...rest}/>
     case 'textarea':
       return <TextArea {...rest}/>
     default:

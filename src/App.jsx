@@ -11,6 +11,7 @@ import {Routes, Route, Navigate} from 'react-router-dom'
 import AboutOneItem from "./components/pages/aboutOneItem/AboutOneItem";
 import {useDispatch} from "react-redux";
 import {getItems} from "./store/Api/itemAction";
+import CartForm from "./components/pages/cartForm/CartForm";
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/favourites/" element={<Favourites  />}/>
           <Route path="/favourites/:id" element={<Navigate to="/about/:id" />}/>
           <Route path="/cart/" element={<Cart />}/>
+          <Route path="/cartForm/" element={<CartForm />}/>
           <Route path="/cart/:id" element={<Navigate to="/about/:id" />}/>
           <Route path="*" element={<NotFoundPage />}/>
         </Route>
