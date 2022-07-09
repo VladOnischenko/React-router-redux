@@ -2,7 +2,7 @@ import React from 'react';
 import CartFormContainer from "./CartFormContainer";
 import {useNavigate} from "react-router-dom";
 import Button from "../../button/Button";
-
+import './cartForm.scss'
 
 const CartForm = () => {
   const navigate = useNavigate()
@@ -12,11 +12,13 @@ const CartForm = () => {
 
   return (
     <>
-      <h1>CART FORM</h1>
+      <h1 className="store-items__title">CART FORM</h1>
         <Button styles="goBack-btn" handlerClick={goBack} text="Go Back"/>
         <Button styles="goHome-btn" handlerClick={goHome} text="Go Home"/>
       <div className="form">
-        <CartFormContainer />
+        <div className="form-wrapper">
+          <CartFormContainer />
+        </div>
       </div>
     </>
   );
