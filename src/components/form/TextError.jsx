@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TextError = () => {
+const TextError = (props) => {
   return (
-    <div>
-
+    <div className="error">
+      {props.children}
     </div>
   );
 };
