@@ -1,4 +1,4 @@
-import {SET_ITEMS_CART} from "../types";
+import {CLEAR_ITEMS_CART, SET_ITEMS_CART} from "../types";
 
 const initialState = {
   cart: [],
@@ -13,10 +13,13 @@ export const cartReducer = (state = initialState, action) => {
       const filteredItems = cart.filter(el => el !== item)
 
       if(state.cart.includes(item)) {
-        return {...state, cart: filteredItems}
+        return { ...state, cart: filteredItems }
       } else {
-        return {...state, cart: allItems}
+        return { ...state, cart: allItems }
       }
+    }
+    case CLEAR_ITEMS_CART: {
+      return { ...state, cart: action.payload }
     }
     default:
       return state
