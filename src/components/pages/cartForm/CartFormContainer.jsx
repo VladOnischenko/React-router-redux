@@ -40,13 +40,11 @@ const CartFormContainer = () => {
   })
 
   const onSubmit = (values) => {
-    dispatch(spinnerOFF())
-    console.log(loading)
+    dispatch(spinnerON())
     setTimeout(() => {
       console.log("Submit form", values)
       dispatch(clearBasket())
-      dispatch(spinnerON())
-      console.log(loading)
+      dispatch(spinnerOFF())
     },2000)
   }
 
@@ -89,7 +87,7 @@ const CartFormContainer = () => {
           }
         </Formik>
         {
-          !loading ?  null : <LoaderSpinner />
+          !loading ? <LoaderSpinner /> : null
         }
       </>
   )
