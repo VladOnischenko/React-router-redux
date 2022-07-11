@@ -1,6 +1,5 @@
 import {
   GET_ITEMS_FAILURE,
-  GET_ITEMS_STARTED,
   GET_ITEMS_SUCCESS
 } from "../types";
 
@@ -12,10 +11,6 @@ const initialState = {
 
 export const itemReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ITEMS_STARTED :
-      return {
-        ...state,
-      }
 
     case GET_ITEMS_SUCCESS:
       return {
