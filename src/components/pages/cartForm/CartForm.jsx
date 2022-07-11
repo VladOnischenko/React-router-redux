@@ -6,7 +6,8 @@ import './cartForm.scss'
 import {useSelector} from "react-redux";
 
 const CartForm = () => {
-  const { cart } = useSelector( state => state.cartReducer)
+  const { cartReducer } = useSelector( state => state)
+  const { cart } = cartReducer
   const navigate = useNavigate()
 
   const goBack = () => navigate(-1)
@@ -23,7 +24,7 @@ const CartForm = () => {
             <CartFormContainer />
           </div>
         </div>
-        : <p>Sorry, your cart is empty</p>
+        : <p>Your cart is empty</p>
       }
     </>
   );

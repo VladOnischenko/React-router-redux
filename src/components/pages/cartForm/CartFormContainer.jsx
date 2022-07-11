@@ -4,13 +4,15 @@ import {Form, Formik} from "formik";
 import FormControl from "../../form/FormControl";
 import {useDispatch, useSelector} from "react-redux";
 import {clearBasket} from "../../../store/Cart/cartAction";
+import LoaderSpinner from "../../loader-spinner/LoaderSpinner";
+import {spinnerOFF, spinnerON} from "../../../store/LoaderSpinner/spinnerAction";
 
 const CartFormContainer = () => {
   const dispatch = useDispatch()
-  const { cartReducer } = useSelector(state => state)
+  const { cartReducer, spinnerReducer } = useSelector(state => state)
   const { cart } = cartReducer
+  const { loading } = spinnerReducer
   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
-
   const initialValues = {
     name: '',
     surname: '',
@@ -38,10 +40,14 @@ const CartFormContainer = () => {
   })
 
   const onSubmit = (values) => {
+    dispatch(spinnerOFF())
+    console.log(loading)
     setTimeout(() => {
       console.log("Submit form", values)
       dispatch(clearBasket())
-    },1500)
+      dispatch(spinnerON())
+      console.log(loading)
+    },2000)
   }
 
   const priceCounter = () => {
@@ -58,29 +64,34 @@ const CartFormContainer = () => {
   }
 
   return (
-      <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {
-        formik =>
-          <Form>
-            <FormControl control="text" name="name" label="Name"/>
-            <FormControl control="text" name="surname" label="Surname"/>
-            <FormControl control="text" name="userAge" label="Age"/>
-            <FormControl control="text" name="phoneNumber" label="Phone number"/>
-            <FormControl control="text" name="address" label="Address"/>
-            <h4>Total price: ${priceCounter()}</h4>
-            <button
-              type="submit"
-              disabled={!formik.isValid || formik.isSubmitting}
-              className={
-                !formik.isValid || formik.isSubmitting ? 'custom-btn btn-disabled' : 'custom-btn btn-enabled'
-              }>Checkout</button>
-          </Form>
-      }
-    </Formik>
+      <>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          {
+            formik =>
+              <Form>
+                <FormControl control="text" name="name" label="Name"/>
+                <FormControl control="text" name="surname" label="Surname"/>
+                <FormControl control="text" name="userAge" label="Age"/>
+                <FormControl control="text" name="phoneNumber" label="Phone number"/>
+                <FormControl control="text" name="address" label="Address"/>
+                <h4>Total price: ${priceCounter()}</h4>
+                <button
+                  type="submit"
+                  disabled={!formik.isValid || formik.isSubmitting}
+                  className={
+                    !formik.isValid || formik.isSubmitting ? 'custom-btn btn-disabled' : 'custom-btn btn-enabled'
+                  }>Checkout</button>
+              </Form>
+          }
+        </Formik>
+        {
+          !loading ?  null : <LoaderSpinner />
+        }
+      </>
   )
 };
 
