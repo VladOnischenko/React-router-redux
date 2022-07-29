@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './button.scss'
 
-const Button = (props) => {
-  const { text, handlerClick, styles } = props
+const Button = ({ text, handlerClick, styles }) => {
 
   return (
     <button onClick={handlerClick} className={styles}>{text}</button>
