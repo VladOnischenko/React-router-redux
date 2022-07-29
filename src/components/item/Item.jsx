@@ -1,14 +1,16 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import PropTypes from 'prop-types';
 import Modal from "../modal/Modal";
 import './item.scss'
 import Button from "../button/Button";
 import {Link} from "react-router-dom";
+import {ListStyle} from "../layout/Layout";
 
 const Item = (props) => {
   const [active, setActive] = useState(false)
   const { id, item, stars, cart, addFav, onAdd, deleteIcon} = props
   const { name, text, price, image, color } = JSON.parse(item)
+  const listStyle = useContext(ListStyle)
 
   const changeActive = () => setActive(!active)
 
@@ -19,7 +21,7 @@ const Item = (props) => {
   const addToCart = () => cart.includes(item) ? null : <Button styles="item__description-btn" text="ADD TO CART" handlerClick={changeActive}/>
 
   return (
-    <li className="item" style={{background: color}}>
+    <li className={listStyle ? "item" : "item item-list"} style={{background: color}}>
       <Link to={`/about/${id}`}>
         <div className="item__img">
           <img src={image} alt="image"/>
