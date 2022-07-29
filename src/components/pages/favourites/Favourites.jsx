@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './favourites.scss'
 import Button from "../../button/Button";
 import {useNavigate} from "react-router-dom";
@@ -6,6 +6,7 @@ import Item from "../../item/Item";
 import {useDispatch, useSelector} from "react-redux";
 import {addToBasket} from "../../../store/Cart/cartAction";
 import {addToStars} from "../../../store/Favourites/favouriteAction";
+import {ListStyle} from "../../layout/Layout";
 
 const Favourites = () => {
   const navigate = useNavigate()
@@ -13,6 +14,8 @@ const Favourites = () => {
   const { cartReducer, favouriteReducer } = useSelector(state => state)
   const { cart } = cartReducer
   const { stars } = favouriteReducer
+
+  const changeStyle = useContext(ListStyle)
 
   const goBack = () => navigate(-1)
   const goHome = () => navigate('/', {replace: true})
@@ -25,7 +28,7 @@ const Favourites = () => {
       <h2 className="store-items__title">YOUR FAVOURITES</h2>
       <Button styles="goBack-btn" handlerClick={goBack} text="Go Back"/>
       <Button styles="goHome-btn" handlerClick={goHome} text="Go Home"/>
-      <div className="carts-wrapper">
+      <div className={changeStyle ? "carts-wrapper" : "carts-list"}>
         { stars.length <= 0
           ? <p>No favourites</p>
           : stars.map( item => {

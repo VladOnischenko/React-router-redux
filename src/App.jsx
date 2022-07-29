@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './style.scss'
 
 import Layout from "./components/layout/Layout";
@@ -23,18 +23,18 @@ const App = () => {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />}/>
-          <Route path="/about/:id" element={<AboutOneItem />}/>
-          <Route path="/favourites/" element={<Favourites  />}/>
-          <Route path="/favourites/:id" element={<Navigate to="/about/:id" />}/>
-          <Route path="/cart/" element={<Cart />}/>
-          <Route path="/cartForm/" element={<CartForm />}/>
-          <Route path="/cart/:id" element={<Navigate to="/about/:id" />}/>
-          <Route path="*" element={<NotFoundPage />}/>
-        </Route>
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />}/>
+            <Route path="/about/:id" element={<AboutOneItem />}/>
+            <Route path="/favourites/" element={<Favourites  />}/>
+            <Route path="/favourites/:id" element={<Navigate to="/about/:id" />}/>
+            <Route path="/cart/" element={<Cart />}/>
+            <Route path="/cartForm/" element={<CartForm />}/>
+            <Route path="/cart/:id" element={<Navigate to="/about/:id" />}/>
+            <Route path="*" element={<NotFoundPage />}/>
+          </Route>
+        </Routes>
     </>
   )
 }

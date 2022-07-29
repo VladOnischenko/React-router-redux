@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './cart.scss'
 import Button from "../../button/Button";
 import {useNavigate} from "react-router-dom";
@@ -7,6 +7,7 @@ import { BsFillCartXFill } from "react-icons/bs";
 import {useDispatch, useSelector} from "react-redux";
 import {addToBasket} from "../../../store/Cart/cartAction";
 import {addToStars} from "../../../store/Favourites/favouriteAction";
+import {ListStyle} from "../../layout/Layout";
 
 const Cart = () => {
   const navigate = useNavigate()
@@ -22,13 +23,15 @@ const Cart = () => {
   const onAdd = (item) => dispatch(addToBasket(item))
   const addFav = (item) => dispatch(addToStars(item))
 
+  const changeStyle = useContext(ListStyle)
+
   return (
     <>
       <h2 className="store-items__title">YOUR CART</h2>
       <Button styles="goBack-btn" handlerClick={goBack} text="Go Back"/>
       <Button styles="goHome-btn" handlerClick={goHome} text="Go Home"/>
       { cart.length > 0 && <Button styles="buy-btn" handlerClick={cartFormPage} text="Buy"/>}
-      <div className="carts-wrapper">
+      <div className={changeStyle ? "carts-wrapper" : "carts-list"}>
         { cart.length <= 0
           ? <p>Your cart is empty</p>
           : cart.map( item => {
