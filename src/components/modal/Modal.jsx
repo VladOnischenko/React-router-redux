@@ -3,8 +3,7 @@ import './modal.scss'
 import PropTypes from 'prop-types';
 import Button from "../button/Button";
 
-const Modal = (props) => {
-  const { description, header, action, price, active } = props
+const Modal = ({ description, header, action, price, active }) => {
   const handlerModal = () => active ? 'modal active' : 'modal'
 
   return (
